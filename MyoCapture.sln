@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28010.2046
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyoCapture", "MyoCapture\MyoCapture.csproj", "{8950DF5C-2151-4C44-9924-7BBB2CF1D194}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8950DF5C-2151-4C44-9924-7BBB2CF1D194}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8950DF5C-2151-4C44-9924-7BBB2CF1D194}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8950DF5C-2151-4C44-9924-7BBB2CF1D194}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8950DF5C-2151-4C44-9924-7BBB2CF1D194}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C3286D3F-1157-4166-9565-2C6D6D0C29D0}
+	EndGlobalSection
+EndGlobal
