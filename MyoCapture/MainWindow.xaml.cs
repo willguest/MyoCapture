@@ -22,6 +22,9 @@ namespace MyoCapture
 {
     public partial class MainWindow
     {
+
+        #region Public Variables
+
         public string LeftMyoName = "MyoL";
         public string RightMyoName = "MyoR";
         public string topLevelFolderName = "Data";
@@ -34,7 +37,10 @@ namespace MyoCapture
         public string directory = Path.GetDirectoryName(System.Reflection.Assembly.GetEntryAssembly().Location);   // directory to store records
         public string dataPath;
 
-        #region Variables
+        #endregion Public Variables
+
+
+        #region Private Variables
 
         // Watchers
         private BluetoothLEAdvertisementWatcher BleWatcher;
@@ -61,7 +67,10 @@ namespace MyoCapture
         private double captureDuration = 0;
 
 
-        #endregion Variables
+        #endregion Private Variables
+
+
+        #region Button Handlers
 
         private void ToggleEnabled(object sender, EventArgs e)
         { ToggleButton(); }
@@ -87,8 +96,10 @@ namespace MyoCapture
             });
         }
 
+        #endregion Button Handlers
 
 
+        #region Initialisation
 
         public MainWindow()
         {
@@ -112,6 +123,11 @@ namespace MyoCapture
             cmbInstructions.SelectionChanged += showNewInstruction;
             CheckFolderStructure();
         }
+
+        #endregion Initialisation
+
+
+        #region UI Functions
 
         private void ToggleInstructions()
         {
@@ -141,7 +157,7 @@ namespace MyoCapture
 
         private void CheckFolderStructure()
         {
-            dataPath = Path.Combine(directory, topLevelFolderName);
+            dataPath = Path.Combine(directory, txtSessionId.Text);
             if (!Directory.Exists(dataPath))
             {
                 Directory.CreateDirectory(dataPath);
@@ -220,11 +236,12 @@ namespace MyoCapture
                 if (readyMyos == 2)
                 {
                     Console.WriteLine($"Both Myos are connected");
-                    //btnStartStream.IsEnabled = true;
+                    btnStartStream.IsEnabled = true;
                 }
             });
         }
 
+        #endregion UI Functions
 
 
         #region Setup and Start Watchers
@@ -271,8 +288,6 @@ namespace MyoCapture
 
 
         #region Connect and Disconnect
-
-
 
         private Guid AddMyoArmbandFromDevice(BluetoothLEDevice _device)
         {
@@ -663,7 +678,7 @@ namespace MyoCapture
 
                     if (captureDuration > 0)
                     {
-                        btnSaveUpload.IsEnabled = true;
+                        //btnSaveUpload.IsEnabled = true;
                         captureDuration = 0;
                     }
                     
@@ -897,6 +912,7 @@ namespace MyoCapture
 
         #endregion GATT Functions
 
+
         #region UI Controls
 
         private void UpdateArmbandInfo(BluetoothLEDevice _dev)
@@ -959,8 +975,10 @@ namespace MyoCapture
 
         private void btnSaveUpload_Click(object sender, System.Windows.RoutedEventArgs e)
         {
-            Console.WriteLine("Your data has been successfully saved and uploaded");
-            Console.WriteLine("Please find all stored files here: " + Environment.CurrentDirectory);
+            Console.WriteLine("Your data has been successfully saved");
+            Console.WriteLine("Please find all stored files here: " + directory);
+
+
         }
 
 
@@ -1010,7 +1028,6 @@ namespace MyoCapture
         }
 
         #endregion region UI Controls
-
 
     }
 }
